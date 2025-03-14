@@ -12,3 +12,4 @@ function two () {
 one();
 two();
 
+console.log("hi");

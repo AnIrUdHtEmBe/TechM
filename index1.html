@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tags SPA</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>60 Most Used HTML Tags - SPA</h1>
+        <nav>
+            <ul>
+                <li><button onclick="loadPage('headings')">Headings</button></li>
+                <li><button onclick="loadPage('text')">Text Elements</button></li>
+                <li><button onclick="loadPage('forms')">Forms</button></li>
+                <li><button onclick="loadPage('tables')">Tables</button></li>
+                <li><button onclick="loadPage('media')">Media</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="content">
+        <p>Welcome to the HTML Tags Showcase! Click on a section to explore.</p>
+        <a href="index.html">
+            <button>Go to Home</button>
+        </a>
+        
+    </main>
+    <footer>
+        <p>&copy; 2025 HTML Showcase</p>
+    </footer>
+    <script>
+        function loadPage(section) {
+            const pages = {
+                'headings': '<h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6>',
+                'text': '<p>Paragraph</p><strong>Bold</strong><em>Italic</em><u>Underline</u><s>Strikethrough</s><mark>Highlighted</mark>',
+                'forms': '<form><label>Name: <input type="text"></label><button type="submit">Submit</button></form>',
+                'tables': '<table border="1"><tr><th>Header 1</th><th>Header 2</th></tr><tr><td>Data 1</td><td>Data 2</td></tr></table>',
+                'media': '<img src="image.jpg" alt="Sample Image"><video controls><source src="video.mp4" type="video/mp4"></video>'
+            };
+            document.getElementById('content').innerHTML = pages[section];
+        }
+    </script>
+</body>
+</html>

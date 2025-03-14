@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing Canvas</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      canvas {
+        border: 2px solid black;
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Draw on the Canvas! 🖍️</h2>
+    <canvas id="drawingCanvas" width="500" height="400"></canvas>
+
+    <script>
+      const canvas = document.getElementById("drawingCanvas");
+      const ctx = canvas.getContext("2d");
+
+      let drawing = false;
+
+      // Start Drawing
+      canvas.addEventListener("mousedown", () => (drawing = true));
+      canvas.addEventListener("mouseup", () => (drawing = false));
+      canvas.addEventListener("mouseout", () => (drawing = false));
+
+      // Draw on Canvas
+      canvas.addEventListener("mousemove", (event) => {
+        if (!drawing) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        ctx.fillStyle = "black"; // Pen color
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    </script>
+  </body>
+</html>
